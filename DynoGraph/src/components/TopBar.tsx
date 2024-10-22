@@ -2,7 +2,7 @@ import {AppBar, Button, Toolbar} from "@mui/material";
 
 function TopBar() {
   return (
-    <AppBar>
+    <AppBar position={"static"}>
       <Toolbar>
         <Button variant={"text"}>
           test
