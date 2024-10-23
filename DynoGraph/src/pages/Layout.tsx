@@ -1,12 +1,13 @@
 import TopBar from "../components/TopBar.tsx";
 import {Outlet} from "react-router-dom";
+import {Box} from "@mui/material";
 
 function Layout() {
   return (
-    <div style={{width:'100%', height:'100%'}}>
+    <Box width='100%' height='100%'>
       <TopBar/>
       <Outlet/>
-    </div>
+    </Box>
   );
 }
 
