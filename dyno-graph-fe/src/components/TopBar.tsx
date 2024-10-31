@@ -1,5 +1,5 @@
-import {AppBar, Box, IconButton, Stack, Toolbar, Typography} from "@mui/material";
-import {DarkMode, LightMode} from "@mui/icons-material";
+import {AppBar, Box, IconButton, Stack, Toolbar} from "@mui/material";
+import {DarkMode, LightMode, Menu} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../state/store.ts";
 import {setMode} from "../state/global/globalSlice.ts";
 
@@ -18,7 +18,10 @@ function TopBar() {
     <AppBar position={"static"}>
       <Toolbar>
         <Stack width={"100%"} direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
-          <Typography>ty beyonce</Typography>
+          <IconButton color={"inherit"}>
+            <Menu/>
+          </IconButton>
+
           <Box>
             <IconButton color={'inherit'} onClick={switchTheme}>
               {mode === 'light' ? <LightMode/> : <DarkMode/>}
