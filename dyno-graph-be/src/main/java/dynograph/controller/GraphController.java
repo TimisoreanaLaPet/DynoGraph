@@ -1,12 +1,10 @@
 package dynograph.controller;
 
-import dynograph.model.Graph;
+import dynograph.model.DynamicGraph;
 import dynograph.service.GraphService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("graph")
@@ -17,9 +15,15 @@ public final class GraphController {
         this.graphService = graphService;
     }
 
-    @GetMapping
-    public ResponseEntity<Graph> get() {
-        var graph = graphService.get();
+    @GetMapping("initial")
+    public ResponseEntity<DynamicGraph> getInitial() {
+        var graph = graphService.getInitial();
+        return new ResponseEntity<>(graph, HttpStatus.OK);
+    }
+
+    @GetMapping("next/{stateId}")
+    public ResponseEntity<DynamicGraph> getNextSubgraph(@PathVariable String stateId) {
+        var graph = graphService.getNextSubgraph(stateId);
         return new ResponseEntity<>(graph, HttpStatus.OK);
     }
 }
